@@ -3,6 +3,7 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { FuncionarioService } from '../services/funcionario.service';
 import { FormsModule } from '@angular/forms'; 
 import { NgIf } from '@angular/common';
+import { FuncionarioListComponent } from '../funcionario-list/funcionario-list.component';
 
 @Component({
   selector: 'app-funcionario-edit',
@@ -12,13 +13,13 @@ import { NgIf } from '@angular/common';
   imports: [FormsModule, RouterLink, NgIf]
 })
 export class FuncionarioEditComponent implements OnInit {
+  funcionarioList = new FuncionarioListComponent(this.funcionarioService);
   funcionario: any = {};
   message: string = '';
   messageClass: string = '';
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router,
     private funcionarioService: FuncionarioService
   ) {}
 
@@ -31,8 +32,12 @@ export class FuncionarioEditComponent implements OnInit {
 
   updateFuncionario() {
     this.funcionarioService.updateFuncionario(this.funcionario.id, this.funcionario).subscribe(response => {
-      this.message = response.mensagem;
-      this.messageClass = response.status === 'Ok' ? 'success' : 'error';
+      if(response.status === 'Ok') {
+        this.funcionarioList.showSuccess(response.mensagem);
+        } else {
+        this.funcionarioList.showDanger(response.mensagem);
+      }
     });
   }
+
 }
