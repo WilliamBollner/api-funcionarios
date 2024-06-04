@@ -1,29 +1,28 @@
-<div>
-    <table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Nome</th>
-          <th>Departamento</th>
-          <th>Endereço</th>
-          <th>Email</th>
-          <th>Ações</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let funcionario of funcionarios">
-          <td>{{ funcionario.id }}</td>
-          <td>{{ funcionario.nome }}</td>
-          <td>{{ funcionario.departamento }}</td>
-          <td>{{ funcionario.endereco }}</td>
-          <td>{{ funcionario.email }}</td>
-          <td>
-            <button routerLink = "edit/{{funcionario.id}}" (click)="editFuncionario(funcionario)">Editar</button>
-            <button (click)="deleteFuncionario(funcionario.id)">Excluir</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <div ngClass="messageClass">{{ message }}</div>
-  </div>
-  
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Departamento</th>
+        <th>Endereço</th>
+        <th>Email</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let funcionario of funcionarios">
+        <td>{{ funcionario.id }}</td>
+        <td>{{ funcionario.nome }}</td>
+        <td>{{ funcionario.departamento }}</td>
+        <td>{{ funcionario.endereco }}</td>
+        <td>{{ funcionario.email }}</td>
+        <td>
+          <button class="button primary" routerLink = "edit/{{funcionario.id}}" (click)="editFuncionario(funcionario.id)">Editar</button>
+          <button class="button danger" (click)="deleteFuncionario(funcionario.id)">Excluir</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div *ngIf="message" class="alert" [ngClass]="messageClass">{{ message }}</div>
+</div>

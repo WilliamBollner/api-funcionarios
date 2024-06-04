@@ -1,0 +1,43 @@
+$footer-background: #333;
+$footer-text-color: #fff;
+$footer-link-color: #4CAF50;
+$footer-padding: 20px;
+
+.footer-container {
+  background-color: $footer-background;
+  color: $footer-text-color;
+  padding: $footer-padding;
+  text-align: center;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 15px;
+
+    a {
+      color: $footer-link-color;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .footer-text {
+    margin: 0;
+  }
+}

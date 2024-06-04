@@ -1,21 +1,21 @@
-<div>
-    <div>
-      <label>Nome</label>
-      <input [(ngModel)]="funcionario.nome" />
-    </div>
-    <div>
-      <label>Departamento</label>
-      <input [(ngModel)]="funcionario.departamento" />
-    </div>
-    <div>
-      <label>Endereço</label>
-      <input [(ngModel)]="funcionario.endereco" />
-    </div>
-    <div>
-      <label>Email</label>
-      <input [(ngModel)]="funcionario.email" />
-    </div>
-    <button routerLink = '' (click)="updateFuncionario()">Salvar</button>
-    <div *ngIf="message" ngClass="messageClass">{{ message }}</div>
+<div class="form-container">
+  <div class="form-group">
+    <label>Nome</label>
+    <input [(ngModel)]="funcionario.nome" />
   </div>
-  
+  <div class="form-group">
+    <label>Departamento</label>
+    <input [(ngModel)]="funcionario.departamento" />
+  </div>
+  <div class="form-group">
+    <label>Endereço</label>
+    <input [(ngModel)]="funcionario.endereco" />
+  </div>
+  <div class="form-group">
+    <label>Email</label>
+    <input [(ngModel)]="funcionario.email" />
+  </div>
+  <button routerLink = '' (click)="updateFuncionario()" class="button">Salvar</button>
+
+  <div *ngIf="message" class="alert" ngClass="messageClass">{{ message }}</div>
+</div>

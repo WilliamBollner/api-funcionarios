@@ -1,10 +1,96 @@
-.success {
-    background-color: green;
-    color: white;
+$form-background: #f9f9f9;
+$input-border: #ccc;
+$input-focus-border: #4CAF50;
+$button-primary: #4CAF50;
+$button-text-color: white;
+$alert-success: #4CAF50;
+$alert-error: #f44336;
+
+.form-container {
+  padding: 20px;
+  background-color: $form-background;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 0 auto;
+
+  @media (max-width: 768px) {
+    padding: 10px;
+    max-width: 100%;
   }
-  
-  .error {
-    background-color: red;
-    color: white;
+}
+
+.form-group {
+  margin-bottom: 20px;
+
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
   }
-  
+
+  input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid $input-border;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+
+    &:focus {
+      border-color: $input-focus-border;
+      outline: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    label {
+      font-size: 14px;
+    }
+
+    input {
+      padding: 8px;
+    }
+  }
+}
+
+.button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  color: $button-text-color;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 14px;
+  background-color: $button-primary;
+  margin-top: 10px;
+
+  &:hover {
+    background-color: darken($button-primary, 10%);
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 10px;
+  }
+}
+
+.alert {
+  padding: 12px;
+  border-radius: 4px;
+  margin-top: 20px;
+  text-align: center;
+  color: white;
+
+  &.success {
+    background-color: $alert-success;
+  }
+
+  &.error {
+    background-color: $alert-error;
+  }
+
+  @media (max-width: 768px) {
+    padding: 10px;
+  }
+}
