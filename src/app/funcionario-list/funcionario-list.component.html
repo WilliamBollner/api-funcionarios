@@ -1,4 +1,10 @@
 <div class="table-container">
+  <ngb-alert *ngIf="message === 'success'" type="success" [dismissible]="true">
+      Usuário Excluído com sucesso!
+  </ngb-alert>
+  <ngb-alert *ngIf="message === 'error'" type="danger" [dismissible]="true">
+      Ocorreu um erro ao excluir o usuário!
+  </ngb-alert>
   <table>
     <thead>
       <tr>
@@ -18,11 +24,10 @@
         <td>{{ funcionario.endereco }}</td>
         <td>{{ funcionario.email }}</td>
         <td>
-          <button class="button primary" routerLink = "edit/{{funcionario.id}}" (click)="editFuncionario(funcionario.id)">Editar</button>
+          <button class="button primary" routerLink = "edit/{{funcionario.id}}">Editar</button>
           <button class="button danger" (click)="deleteFuncionario(funcionario.id)">Excluir</button>
         </td>
       </tr>
     </tbody>
   </table>
-  <div *ngIf="message" class="alert" [ngClass]="messageClass">{{ message }}</div>
 </div>

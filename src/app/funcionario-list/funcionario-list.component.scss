@@ -12,6 +12,14 @@ $button-text-color: white;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   overflow-x: auto;
+  position: relative;
+}
+
+.sticky-alert {
+  position: -webkit-sticky;
+  position: fixed;
+  top: 0;
+  z-index: 1050;
 }
 
 table {
@@ -70,23 +78,6 @@ table {
     &:hover {
       background-color: darken($button-danger, 10%);
     }
-  }
-}
-
-.alert {
-  padding: 12px;
-  border-radius: 4px;
-  margin-top: 20px;
-  text-align: center;
-
-  &.success {
-    background-color: #4CAF50;
-    color: white;
-  }
-
-  &.error {
-    background-color: #f44336;
-    color: white;
   }
 }
 
